@@ -1,76 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess My Age - Gallery</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
-            padding: 2rem;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .card {
-            background-color: #1e293b;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-        }
-        .card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-        .card-content {
-            padding: 1rem;
-            text-align: center;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f5f0">
+<title>Ghicește vârsta</title>
+<style>
+:root{color-scheme:light;--ink:#25231f;--muted:#77736c;--paper:#f7f5f0;--card:#fffefa;--line:#e5e0d7;--accent:#315c4c;--accent2:#e7eee9;--gold:#d89548}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}header{padding:38px 22px 28px;text-align:center;background:radial-gradient(ellipse at 50% -40%,#dae7de,transparent 70%)}header h1{font:700 clamp(2rem,5vw,3.4rem)/1.05 Georgia,serif;margin:0 0 10px;letter-spacing:-.04em}header p{margin:0;color:var(--muted)}main{width:min(1100px,calc(100% - 32px));margin:0 auto 60px}.intro{display:flex;justify-content:space-between;align-items:center;gap:20px;margin:20px 0}.intro strong{font-size:14px}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.filters button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 15px;font:inherit;cursor:pointer}.filters button.active{background:var(--accent);color:white;border-color:var(--accent)}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 3px 12px #3126140a;cursor:pointer;transition:transform .15s,box-shadow .15s}.card:hover{transform:translateY(-3px);box-shadow:0 10px 25px #31261414}.card img{display:block;width:100%;height:235px;object-fit:cover;background:#e9e6df}.info{padding:13px 15px 15px}.who{font-weight:650}.vote-summary{color:var(--muted);font-size:13px;margin-top:3px}.vote-summary b{color:var(--accent)}.empty{padding:44px;text-align:center;color:var(--muted);background:var(--card);border:1px dashed var(--line);border-radius:16px}.modal{display:none;position:fixed;inset:0;z-index:5;padding:20px;background:#171914bb;align-items:center;justify-content:center;overflow:auto}.modal.open{display:flex}.dialog{position:relative;width:min(780px,100%);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);background:var(--card);border-radius:20px;overflow:hidden;box-shadow:0 20px 70px #0004}.dialog>img{width:100%;height:100%;min-height:400px;max-height:78vh;object-fit:contain;background:#161713}.form{padding:30px 25px;align-self:center}.close{position:absolute;right:12px;top:12px;width:38px;height:38px;border:0;border-radius:50%;background:#fff;color:var(--ink);font-size:24px;cursor:pointer}.eyebrow{color:var(--accent);font-size:12px;font-weight:750;letter-spacing:.11em;text-transform:uppercase}.form h2{font:700 27px/1.15 Georgia,serif;margin:8px 0}.form p{color:var(--muted);margin:0 0 22px}.age-row{display:flex;align-items:center;gap:10px}.age-row input{min-width:0;width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:10px;background:white;color:var(--ink);font:inherit;font-size:18px}.age-row span{color:var(--muted)}.submit{width:100%;margin-top:12px;padding:12px;border:0;border-radius:10px;background:var(--accent);color:#fff;font:inherit;font-size:16px;font-weight:650;cursor:pointer}.submit:hover{background:#234636}.message{min-height:28px;margin-top:12px;color:var(--accent);font-size:14px}.results{padding:14px 0 0;border-top:1px solid var(--line);font-size:14px}.results strong{font-size:19px;color:var(--accent)}.hint{font-size:12px;color:var(--muted);margin-top:22px}@media(max-width:650px){header{padding-top:30px}.dialog{display:block}.dialog>img{height:45vh;min-height:230px;max-height:52vh}.form{padding:22px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card img{height:180px}.info{padding:10px}.who{font-size:14px}}@media(max-width:380px){.grid{grid-template-columns:1fr}.card img{height:230px}}
+</style>
 </head>
 <body>
-
-    <h1>Guess My Age Gallery</h1>
-
-    <div class="gallery">
-        <!-- Duplicate this block for each image in your folder -->
-        <div class="card">
-            <img src="Photo-001.jpg" alt="Photo 1">
-            <div class="card-content">
-                <p>Photo 1</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="Photo-002.jpg" alt="Photo 2">
-            <div class="card-content">
-                <p>Photo 2</p>
-            </div>
-        </div>
-    </div>
-
+<header><h1>Ghicește vârsta</h1><p>Alege o fotografie și votează câți ani crezi că are persoana.</p></header>
+<main><div class="intro"><strong id="count">6 fotografii</strong><span class="vote-summary">Voturile tale se păstrează în acest browser.</span></div><nav class="filters" id="filters" aria-label="Filtrează fotografiile"></nav><section class="grid" id="grid" aria-label="Fotografii"></section></main>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="title"><div class="dialog"><button class="close" id="close" aria-label="Închide">×</button><img id="portrait" alt=""><div class="form"><div class="eyebrow" id="person"></div><h2 id="title">Câți ani crezi că are?</h2><p>Introdu vârsta ta estimată, apoi trimite votul.</p><form id="voteForm"><label class="age-row"><input id="age" type="number" min="1" max="120" step="1" placeholder="Ex.: 35" required><span>ani</span></label><button class="submit" type="submit">Votează</button></form><div class="message" id="message" aria-live="polite"></div><div class="results" id="results"></div><div class="hint">Voturile sunt salvate doar pe acest dispozitiv.</div></div></div></div>
+<script>
+const photos=[
+ {id:'britney-001',name:'Britney Spears 001',folder:'Britney Spears',src:'Britney_Spears/Britney_Spears_001.jpg'},
+ {id:'britney-002',name:'Britney Spears 002',folder:'Britney Spears',src:'Britney_Spears/Britney_Spears_002.jpg'},
+ {id:'denise-001',name:'Denise Richards 001',folder:'Denise Richards',src:'Denise_Richards/denise-richard-001.jpg'},
+ {id:'denise-002',name:'Denise Richards 002',folder:'Denise Richards',src:'Denise_Richards/denise-richard-002.jpg'},
+ {id:'sergiu-001',name:'Sergiu 001',folder:'Sergiu',src:'Sergiu/Photo-001.jpg'},
+ {id:'sergiu-002',name:'Sergiu 002',folder:'Sergiu',src:'Sergiu/Photo-002.JPG'}
+];
+const grid=document.querySelector('#grid'),filters=document.querySelector('#filters'),modal=document.querySelector('#modal'),age=document.querySelector('#age');let active='Toate',selected=null;
+function getVotes(id){try{return JSON.parse(localStorage.getItem('guessmyage-votes-'+id)||'[]')}catch{return []}}
+function summary(photo){const votes=getVotes(photo.id);if(!votes.length)return 'Niciun vot încă';const avg=votes.reduce((a,b)=>a+b,0)/votes.length;return `Media <b>${avg.toFixed(1)} ani</b> · ${votes.length} ${votes.length===1?'vot':'voturi'}`}
+function render(){const folders=['Toate',...new Set(photos.map(p=>p.folder))];filters.innerHTML=folders.map(f=>`<button type="button" class="${f===active?'active':''}" aria-pressed="${f===active}">${f}</button>`).join('');[...filters.children].forEach(b=>b.onclick=()=>{active=b.textContent;render()});const shown=photos.filter(p=>active==='Toate'||p.folder===active);document.querySelector('#count').textContent=`${shown.length} ${shown.length===1?'fotografie':'fotografii'}`;grid.innerHTML=shown.map(p=>`<article class="card" tabindex="0" role="button" aria-label="Votează pentru ${p.name}" data-id="${p.id}"><img src="${p.src}" alt="Fotografie: ${p.name}" loading="lazy"><div class="info"><div class="who">${p.name}</div><div class="vote-summary">${summary(p)}</div></div></article>`).join('');grid.querySelectorAll('.card').forEach(card=>{card.onclick=()=>openPhoto(card.dataset.id);card.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPhoto(card.dataset.id)}}})}
+function openPhoto(id){selected=photos.find(p=>p.id===id);if(!selected)return;document.querySelector('#portrait').src=selected.src;document.querySelector('#portrait').alt='Fotografie: '+selected.name;document.querySelector('#person').textContent=selected.folder;document.querySelector('#message').textContent='';age.value='';updateResults();modal.classList.add('open');age.focus()}
+function updateResults(){const votes=getVotes(selected.id);document.querySelector('#results').innerHTML=votes.length?`Vârsta medie estimată: <strong>${(votes.reduce((a,b)=>a+b,0)/votes.length).toFixed(1)} ani</strong><br>${votes.length} ${votes.length===1?'vot':'voturi'} în total.`:'Încă nu există voturi pentru această fotografie.'}
+document.querySelector('#voteForm').onsubmit=e=>{e.preventDefault();const n=Number(age.value);if(!Number.isInteger(n)||n<1||n>120){document.querySelector('#message').textContent='Alege o vârstă între 1 și 120 de ani.';return}const votes=getVotes(selected.id);votes.push(n);localStorage.setItem('guessmyage-votes-'+selected.id,JSON.stringify(votes));document.querySelector('#message').textContent='Vot înregistrat. Mulțumim!';updateResults();render()};function close(){modal.classList.remove('open');selected=null}document.querySelector('#close').onclick=close;modal.onclick=e=>{if(e.target===modal)close()};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))close()});render();
+</script>
 </body>
 </html>
+
